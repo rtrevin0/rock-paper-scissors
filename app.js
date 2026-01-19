@@ -9,4 +9,10 @@ function getComputerChoice() {
     }
 }
 
+function getHumanChoice() {
+    const choice = prompt("Rock, Paper, or Scissors?");
+    return choice.toLowerCase();
+}
+
 console.log(getComputerChoice());
+console.log(getHumanChoice());
