@@ -20,31 +20,37 @@ function getHumanChoice() {
 function playRound(humanChoice, computerChoice) {
     const humanChoiceLower = humanChoice.toLowerCase();
     const computerChoiceLower = computerChoice.toLowerCase();
+    let result = "";
 
     if (humanChoiceLower === computerChoiceLower) {
-        return "It's a tie!";
+        result = "It's a tie!";
     } else if (humanChoiceLower === "rock" && computerChoiceLower === "scissors"){
         humanScore++;
-        return "You win! Rock beats scissors!";
+        result = "You win! Rock beats scissors!";
     } else if (humanChoiceLower === "paper" && computerChoiceLower === "rock"){
         humanScore++;
-        return "You win! Paper beats rock!";
+        result = "You win! Paper beats rock!";
     } else if (humanChoiceLower === "scissors" && computerChoiceLower === "paper"){
         humanScore++;
-        return "You win! Scissors beats paper!";
+        result = "You win! Scissors beats paper!";
     } else if (humanChoiceLower === "rock" && computerChoiceLower === "paper") {
         computerScore++;
-        return "You lose! Paper beats rock!";
+        result = "You lose! Paper beats rock!";
     } else if (humanChoiceLower === "paper" && computerChoiceLower === "scissors"){
         computerScore++;
-        return "You lose! Scissors beats paper!";
+        result = "You lose! Scissors beats paper!";
     } else if (humanChoiceLower === "scissors" && computerChoiceLower === "rock"){
         computerScore++;
-        return "You lose! Rock beats scissors!";
+        result = "You lose! Rock beats scissors!";
     } else {
-        return "Invalid choice! Please choose rock, paper, or scissors.";
+        result = "Invalid choice! Please choose rock, paper, or scissors.";
     }   
+    console.log(result);
 }
 
-console.log(getComputerChoice());
-console.log(getHumanChoice());
+const humanChoice = getHumanChoice();
+const computerChoice = getComputerChoice();
+console.log(`You chose: ${humanChoice}`);
+console.log(`Computer chose: ${computerChoice}`);
+playRound(humanChoice, computerChoice);
+console.log(`Score - You: ${humanScore}, Computer: ${computerScore}`);
